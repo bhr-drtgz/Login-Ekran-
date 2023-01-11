@@ -12,7 +12,7 @@
 <body>
     <div class="mainconteiner">
         <form id="contactForm">
-            <h3 class="formTitle">İLETİŞİM KUTUSU</h3>npm
+            <h3 class="formTitle">İLETİŞİM KUTUSU</h3>
             <div class="formRow">
                 <label id="nameLabel" for="name">İsim</label>
                 <input id="name" type="text" placeholder="Ör:Tom">
@@ -31,8 +31,11 @@
                 <textarea id="message" cols="33" rows="10"></textarea>
                 <span class="inputEror" id="messageEror"></span>
             </div>
-            <button type="submit">Gönder</button>
+            <button id="submitBtn" class="submitBtnActive" type="submit">Gönder</button>
         </form>
+        <div id="responseConteiner">
+            <p id="responseText"></p>
+        </div>
     </div>
 
 

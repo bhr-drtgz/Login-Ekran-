@@ -16,6 +16,12 @@ const emailEror = document.getElementById("emailEror")
 
 const messageEror = document.getElementById("messageEror")
 
+const responseConteiner = document.getElementById("responseConteiner")
+
+const submitBtn = document.getElementById("submitBtn")
+
+const responseText = document.getElementById("responseText")
+
 nameInput.addEventListener('focusin', () => {
     nameLabel.style.color = "black"
 })
@@ -65,6 +71,9 @@ contactForm.addEventListener("submit", (event) => {
         message: message.value,
         date: new Date()
     }
+    submitBtn.disabled = true;
+    submitBtn.classList.replace("submitBtnActive", "submitBtnDisabled")
+    submitBtn.innerText = "Gönderiliyor..."
     fetch('http://localhost:3004/add-form', {
         method: "post",
         headers: {
@@ -72,13 +81,42 @@ contactForm.addEventListener("submit", (event) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(newForm),
-     })
+    })
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            if (data.status === 200) {
+                responseConteiner.style.display = "block"
+                responseConteiner.classList.add("responseSuccess")
+                responseText.innerText = "Formunuz Başarıyla Gönderildi"
+                setTimeout(() => {
+                    responseConteiner.style.display = "none"
+                    responseConteiner.classList.remove("responseSuccess")
+                    responseText.innerText = " "
+                    submitBtn.disabled = false;
+                    submitBtn.classList.replace("submitBtnDisabled", "submitBtnActive")
+                    submitBtn.innerText = "Gönder"
+                    nameInput.value = ""
+                    surname.value = ""
+                    email.value = ""
+                    message.value = ""
+                 }, 2000);
+            }
         })
         .catch(err => {
             console.log(err);
+            responseConteiner.style.display = "block"
+            responseConteiner.classList.add("responseFail")
+            responseText.innerText = "Formunuz Gönderirken Bir Hata Oluştu"
+            setTimeout(() => {
+                responseConteiner.style.display = "none"
+                responseConteiner.classList.remove("responseSuccess")
+                responseText.innerText = " "
+                submitBtn.disabled = false;
+                submitBtn.classList.replace("submitBtnDisabled", "submitBtnActive")
+                submitBtn.innerText = "Gönder"
+                
+            }, 2000);
         })
 
 })

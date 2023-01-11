@@ -22,8 +22,9 @@
 
 form {
     width: 30%;
- }
-form h3{
+}
+
+form h3 {
     text-align: center;
     margin-top: 5px;
 }
@@ -62,7 +63,7 @@ form h3{
     border: 2px solid rgb(92, 95, 93);
 }
 
-form button {
+.submitBtnActive {
     padding: 8px 25px;
     margin-left: 15px;
     margin-top: 10px;
@@ -73,12 +74,55 @@ form button {
     color: gray;
 }
 
-form button:hover {
+.submitBtnActive:hover {
     background-color: grey;
     color: black;
+}
+
+.submitBtnDisabled {
+    padding: 8px 25px;
+    margin-left: 15px;
+    margin-top: 10px;
+    cursor: not-allowed;
+    border: none;
+    background-color: rgb(209, 199, 199);
+    border-radius: 5px;
+    color: gray;
+
 }
 
 .inputEror {
     font-size: 12px;
     color: red;
- }
+}
+#responseConteiner{
+    display: none;
+}
+
+.responseSuccess {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 30px 50px;
+    background-color: grey;
+    border-radius: 5px;
+    color: white;
+}
+.responseFail{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 30px 50px;
+    background-color:red;
+    border-radius: 5px;
+    color: white;
+
+}
+#responseText{
+    text-align:center;
+    line-height: 25px;
+}
