@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: rgb(204, 200, 200);
+    background-color: grey;
 }
 
 .pageTitle {
@@ -18,6 +18,11 @@ body {
     border-radius: 5px;
 }
 
+#loginForm {
+    background-color: rgb(57, 57, 57);
+    color: white;
+}
+
 .ListContainer {
     padding: 10px;
     margin: 20px 50px;
@@ -26,6 +31,8 @@ body {
     background: white;
     display: flex;
     transition: all 0.2s ease-in-out;
+    background-color: rgb(57, 57, 57);
+    color: white;
 }
 
 .ListContainer:hover {
@@ -61,4 +68,87 @@ body {
 .FormRow a {
     text-decoration: none;
     color: rgb(7, 213, 213);
+}
+
+#Yetkisiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#loginForm {
+    width: 50%;
+    padding: 30px 20px;
+    margin-top: 50px;
+    box-shadow: 0 0 5px 0 rgb(0, 0, 0.3);
+    border-radius: 3px;
+
+}
+
+.loginformRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.loginformRow input {
+    width: 70%;
+    padding: 3px 10px;
+}
+
+.lofinFormBtnConteiner {
+    display: flex;
+    justify-content: center;
+}
+
+.lofinFormBtnConteiner button {
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: rgb(89, 210, 210);
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+.lofinFormBtnConteiner button:hover {
+    transform: scale(1.1);
+ }
+
+#loginError {
+    color: red;
+    margin-top: 20px;
+}
+
+#listArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: cadetblue;
+}
+
+#listArrow .icon {
+    font-size: 25px;
+    color: black;
+}
+
+#listArrow .icon:hover {
+    color: white;
+}
+
+#listArrow:hover {
+    cursor: pointer;
+    background-color: gray;
 }
